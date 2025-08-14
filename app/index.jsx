@@ -1,7 +1,9 @@
-import { ImageBackground } from "expo-image";
-import { Text, View, StyleSheet, Image } from "react-native";
-import { Input } from "../components/input/Input";
-import { Botao } from "../components/botao/botao";
+import { ImageBackground } from "expo-image"
+import { Text, View, StyleSheet, Image } from "react-native"
+import { Input } from "../components/input/Input"
+import { Botao } from "../components/botao/botao"
+import { Card } from  '../components/Card/card'
+import { ScrollView } from "react-native"
 
 export default function Index() {
   return (
@@ -17,6 +19,7 @@ export default function Index() {
         ></Image>
       </ImageBackground>
       {/* Campo de consulta */}
+      <ScrollView style={styles.containerScroll}>
       <View style={styles.container}>
         {/* 2.1. Título */}
         <Text style={styles.titulo}>Consulte seu CEP</Text>
@@ -25,7 +28,9 @@ export default function Index() {
         {/* 2.3. Botão */}
         <Botao tituloBotao='Consultar'/>
         {/* 2.4. Card de informações */}
+        <Card/>
       </View>
+      </ScrollView>
     </>
   );
 }
@@ -44,13 +49,23 @@ const styles = StyleSheet.create({
     height: 120,
   },
   container: {
-    flex: 1.5,
+   
     alignItems: "center",
-    paddingTop: 50,
+    width: '100%',
+    minHeight:'100%',
+    gap: 40,  
+  },
+  containerScroll: {
+    flex: 1.5,
     paddingBottom: 50,
-    gap: 40,
+    paddingTop: 50,
+    height: '100%',
+    paddingBottom: 80,
+
+
+
   },
   titulo: {
-    fontSize: 25,
+    fontSize: 25
   },
-});
+})
